@@ -1,0 +1,23 @@
+{
+  "name": "web-components",
+  "version": "1.0.0",
+  "description": "tarea 7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm strat"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IIC3585-2023/web-components-grupo-07.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IIC3585-2023/web-components-grupo-07/issues"
+  },
+  "homepage": "https://github.com/IIC3585-2023/web-components-grupo-07#readme",
+  "dependencies": {
+    "lit": "^2.7.5"
+  }
+}
