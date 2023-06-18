@@ -40,6 +40,7 @@ class RetailCard extends LitElement {
       box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
       overflow: hidden;
       padding: 0.5rem 1rem;
+      background-color: white;
     }
 
     .card:hover {
@@ -224,7 +225,6 @@ class RetailCard extends LitElement {
       <div class="card">
         <div class="card-image">
           <img class="product-img" src=${this.imgUrl} alt=${this.name} />
-          ${this.renderEcoFriendly()}
         </div>
         <div class="card-content">
           <div class="card-header">
