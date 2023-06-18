@@ -27,15 +27,15 @@ class RetailCard extends LitElement {
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
-      width: 5rem;
-      height: 5rem;
+      width: 3rem;
+      height: 3rem;
     }
 
     .card {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      width: 30rem;
+      width: 18rem;
       border-radius: 0.5rem;
       box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
       overflow: hidden;
