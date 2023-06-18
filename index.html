@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejemplo de uso de la componente</title>
-    <script type="module" src="./index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="src/litRetailCard.js"></script>
   </head>
   <body>
-    <mi-componente rating="4" discount="38"></mi-componente>
+    <retail-card
+      imgUrl="https://static.nike.com/a/images/w_1920,c_limit/5359f1a2-d415-43ac-80d8-0a285023bd17/image.jpg"
+      brand="Nike"
+      name="Air Jordan 1"
+      price="250"
+      description="Michael Jordan The Air Jordan 1 is a classic basketball shoe that revolutionized the sneaker industry. It features a high-top design, leather upper, and iconic Jordan branding."
+      rating="4"
+      ratingStyle="star-2"
+      ecofriendly="false"
+      discount="25"
+      currency="$"
+    ></retail-card>
   </body>
 </html>
