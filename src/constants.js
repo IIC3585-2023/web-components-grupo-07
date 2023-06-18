@@ -8,7 +8,7 @@ export const SVG_SOLID_STAR = html`<svg
   <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
   <style>
     svg {
-      fill: #ffd700;
+      fill: currentColor;
     }
   </style>
   <path
@@ -23,7 +23,7 @@ export const SVG_EMPTY_STAR = html`<svg
   <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
   <style>
     svg {
-      fill: #ffd700;
+      fill: currentColor;
     }
   </style>
   <path

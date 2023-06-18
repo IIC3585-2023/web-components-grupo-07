@@ -42,17 +42,22 @@ class RetailCard extends LitElement {
       padding: 0.5rem 1rem;
     }
 
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
     .card-content > div {
       padding: 0.5rem;
     }
 
     .card-header {
       border-bottom: 1px solid #bdc3c7;
+    }
 
     .card-brand {
       font-size: 1rem;
       font-weight: 400;
-      color: #bdc3c7;
       margin: 0;
     }
 
@@ -82,8 +87,7 @@ class RetailCard extends LitElement {
 
     .card-description {
       font-size: 0.8rem;
-      font-weight: 300;
-      color: #bdc3c1;
+      font-weight: 400;
     }
 
     .price-container {
@@ -102,6 +106,29 @@ class RetailCard extends LitElement {
       font-size: 1.2rem;
       font-weight: 500;
       margin: 0rem 0.5rem;
+    }
+
+    .card-rating-caller {
+      font-size: 1rem;
+      font-weight: 300;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .star:hover,
+    .star:hover ~ .star {
+      filter: grayscale(0%);
+      color: #f1c40f;
+      cursor: pointer;
+      transition: filter 0.3s ease;
+    }
+
+    .star:hover ~ .star {
+      color: #c7c5c5;
+    }
+
+    .star.selected {
+      color: #f1c40f;
     }
   `;
 
@@ -142,20 +169,40 @@ class RetailCard extends LitElement {
     this.description = description || 'Product description';
     this.ratingStyle = ratingStyle || 'star-1';
     this.ecofriendly = ecofriendly || false;
-    this.rating = rating || -1;
+    this.rating = 0;
     this.discount = discount || 0;
     this.currency = currency || '$';
+    this.rated = false;
+  }
+
+  handleRatingClick(index) {
+    if (this.rating === index + 1) {
+      this.rating = 0;
+    } else {
+      this.rating = index + 1;
+    }
+    this.rated = true;
+  }
+
+  renderRatingCaller() {
+    if (!this.rated) {
+      return html`<div class="card-rating-caller">Rate this product!</div>`;
+    }
+    return '';
   }
 
   renderRatingStars() {
     const stars = [];
-    for (let i = 0; i < this.rating; i++) {
-      stars.push(SVG_SOLID_STAR);
-    }
-    if (this.ratingStyle === 'star-2') {
-      for (let i = 0; i < 5 - this.rating; i++) {
-        stars.push(SVG_EMPTY_STAR);
-      }
+    for (let i = 0; i < 5; i++) {
+      const star = i < this.rating ? SVG_SOLID_STAR : SVG_EMPTY_STAR;
+      const starClass = i < this.rating ? 'star selected' : 'star';
+      stars.push(
+        html`
+          <span class=${starClass} @click=${() => this.handleRatingClick(i)}>
+            ${star}
+          </span>
+        `
+      );
     }
     return stars;
   }
@@ -194,6 +241,7 @@ class RetailCard extends LitElement {
             <div class="card-description">${this.description}</div>
           </div>
           <div class="card-footer">
+            ${this.renderRatingCaller()}
             <div class="card-rating">${this.renderRatingStars()}</div>
           </div>
         </div>
