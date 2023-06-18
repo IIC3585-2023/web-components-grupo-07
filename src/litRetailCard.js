@@ -127,8 +127,10 @@ class RetailCard extends LitElement {
       color: #c7c5c5;
     }
 
-    .star.selected {
+    .star.selected,
+    .star.selected ~ .star {
       color: #f1c40f;
+      pointer-events: none;
     }
   `;
 
@@ -176,6 +178,7 @@ class RetailCard extends LitElement {
   }
 
   handleRatingClick(index) {
+    if (this.rated) return;
     if (this.rating === index + 1) {
       this.rating = 0;
     } else {
