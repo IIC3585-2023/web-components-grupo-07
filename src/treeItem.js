@@ -67,7 +67,7 @@ class TreeItem extends HTMLElement {
         child.style.display = child.style.display === 'none' ? 'block' : 'none';
       });
       
-      this.style.color = children[0].style.display === 'none' ? 'black' : '#888c88';
+      this.style.color = children[0]?.style.display === 'none' ? 'black' : '#888c88';
       this.classList.toggle('open');
     });
     
