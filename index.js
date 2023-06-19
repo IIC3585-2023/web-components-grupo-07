@@ -1,5 +1,6 @@
-import { html, css, LitElement } from './node_modules/lit';
-import { styleMap } from './node_modules/lit/directives/style-map.js';
+import { html, css, LitElement } from 'lit-element';
+import { styleMap } from 'lit-html/directives/style-map.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 class MiComponente extends LitElement {
   static styles = css`
@@ -38,15 +39,15 @@ class MiComponente extends LitElement {
 
   renderRatingStars() {
     const stars = [];
-
+  
     for (let i = 0; i < 5; i++) {
       const starClass = {
         star: i < this.rating,
       };
-
-      stars.push(html`<span class=${styleMap(starClass)}>&#9733;</span>`);
+  
+      stars.push(html`<span class=${styleMap(starClass)}>${unsafeHTML('&#9733;')}</span>`);
     }
-
+  
     return html`${stars}`;
   }
 }
