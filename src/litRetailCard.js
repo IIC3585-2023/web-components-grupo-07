@@ -220,6 +220,7 @@ class RetailCard extends LitElement {
 
   render() {
     const discountedPrice = (this.price * (100 - this.discount)) / 100;
+    const showDiscount = this.discount > 0;
 
     return html`
       <div class="card">
@@ -231,9 +232,9 @@ class RetailCard extends LitElement {
             <h2 class="card-brand">${this.brand}</h2>
             <h1 class="card-title">${this.name}</h1>
             <div class="card-subtitle">
-              <div class="card-discount">${this.discount}%</div>
+              ${showDiscount ? html`<div class="card-discount">${this.discount}%</div>` : ''}
               <div class="price-container">
-                <div class="original-price">${this.currency}${this.price}</div>
+                ${showDiscount ? html`<div class="original-price">${this.currency}${this.price}</div>` : ''}
                 <div class="discounted-price">
                   ${this.currency}${discountedPrice}
                 </div>
